@@ -1,19 +1,16 @@
-// Select button and message elements
-const button = document.getElementById('interactiveButton');
-const message = document.getElementById('message');
-
-// Event Listener for Button Click
-button.addEventListener('click', () => {
-  // Change Button Text and Color
-  button.textContent = button.textContent === 'Click Me!' ? 'Clicked!' : 'Click Me!';
-  button.style.backgroundColor = button.style.backgroundColor === 'rgb(74, 144, 226)' ? '#f06' : '#4a90e2';
-
-  // Update Message Text
-  message.textContent = 'You clicked the button!';
-  message.style.marginTop = '10px';
-
-  // Reset Message after 2 seconds
-  setTimeout(() => {
-    message.textContent = '';
-  }, 2000);
+const sideNavbar = document.getElementById('sideNavbar');
+const toggleBtn = document.getElementById('toggleBtn');
+const headerText = document.getElementById('headerText');
+const menuText = document.getElementById('menuText');
+toggleBtn.addEventListener('click', () => {
+  sideNavbar.classList.toggle('open');
+  const isOpen = sideNavbar.classList.contains('open');
+  
+  // Toggle the header text visibility
+  headerText.style.display = isOpen ? 'inline' : 'none';
+  menuText.style.display = isOpen ? 'inline' : 'none';
+  // Update the toggle button icon
+  toggleBtn.src = isOpen 
+    ? './image/Screenshot from 2024-06-19 11-58-44 1 (1).svg' 
+    : './image/Screenshot from 2024-06-19 11-58-44 1.svg';
 });
